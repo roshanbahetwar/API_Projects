@@ -15,7 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from themes import views
 
 urlpatterns = [
     path("admin/", admin.site.urls),
+    path("api/themes/details", views.ThemesDetailsView.as_view()),
+    path("api/themes/updatedelete/<int:pk>", views.ThemesDetailsUpdateDelete.as_view()),
 ]
