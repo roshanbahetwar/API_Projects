@@ -14,12 +14,11 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path,include
+from django.urls import path
 
 from bus import views
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("api/", include('car.urls')),
-    path("api/", include('bus.urls')),
-    path("", views.busForm),           # This is form url of bus which is project level
+    path("busdetails/", views.BusDetailsView.as_view()),
+    path("busdetailsupdatedelete/<int:pk>", views.BusDetailsUpdateDelete.as_view()),
 ]
