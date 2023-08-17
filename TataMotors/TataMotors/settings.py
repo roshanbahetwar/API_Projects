@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'car',
     'rest_framework',
     'bus',
+    'trailer',
 ]
 
 MIDDLEWARE = [
