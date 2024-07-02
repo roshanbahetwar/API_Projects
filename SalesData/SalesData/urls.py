@@ -1,7 +1,8 @@
-"""TataMotors URL Configuration
+"""
+URL configuration for SalesData project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/4.1/topics/http/urls/
+    https://docs.djangoproject.com/en/4.2/topics/http/urls/
 Examples:
 Function views
     1. Add an import:  from my_app import views
@@ -15,13 +16,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
+from sales import views
 
-from bus import views
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("api/", include('car.urls')),
-    path("api/", include('bus.urls')),
-    path("", views.busForm),           # This is only for form url of bus which is project level
-    path("api/", include('trailer.urls')),
-    path("api/", include('jaguar.urls')),
+    path("api/", include("sales.urls")),
+    path("api/", include("sales.urls")),
+    path("", views.salesForm),
 ]

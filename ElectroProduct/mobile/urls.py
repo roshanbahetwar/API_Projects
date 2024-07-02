@@ -1,4 +1,4 @@
-"""TataMotors URL Configuration
+"""ElectroProduct URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.1/topics/http/urls/
@@ -14,14 +14,11 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path,include
+from django.urls import path
+from mobile import views
 
-from bus import views
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("api/", include('car.urls')),
-    path("api/", include('bus.urls')),
-    path("", views.busForm),           # This is only for form url of bus which is project level
-    path("api/", include('trailer.urls')),
-    path("api/", include('jaguar.urls')),
+    path("mobiledetails/", views.MobileDetailsView.as_view()),
+    path("mobiledetailsupdatedelete/<int:pk>", views.MobileDetailsUpdateDelete.as_view()),
 ]
